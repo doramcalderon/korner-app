@@ -1,0 +1,12 @@
+ka-betting-list {
+    ion-row.odd {
+        background-color: gainsboro; 
+    }
+    ion-row.even {
+        background-color: white; 
+    }
+
+    .team {
+        max-width: 2.4rem;
+    }
+}
