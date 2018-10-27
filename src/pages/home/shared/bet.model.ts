@@ -5,4 +5,5 @@ export interface Bet {
     localGoals: number;
     visitorGoals: number;
     note?: string;
+    editable: boolean;
 }

@@ -4,12 +4,12 @@ import * as moment from 'moment';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
-import { MatchDay } from '../shared';
+import { MatchDay, Bet } from '../shared';
 
 
 @Injectable()
 export class BettingListService {
-    betsMatch1 = [
+     betsMatch1: Array<Bet> = [
         {
             localGoals: 0,
             visitorGoals: 0,
@@ -17,10 +17,11 @@ export class BettingListService {
                 name: 'Rafalillo',
                 avatar: 'assets/imgs/s-a-r-a-h-s-h-a-r-p-764291-unsplash.jpg'                  
             },
-            note: 'Apuesta ganadora!!'
+            note: 'Apuesta ganadora!!',
+            editable: false
         }
     ];
-    betsMatch2 = [
+    betsMatch2: Array<Bet> = [
         {
             localGoals: 1,
             visitorGoals: 0,
@@ -28,7 +29,8 @@ export class BettingListService {
             participant: {
                 name: 'Rafalillo',
                 avatar: 'assets/imgs/s-a-r-a-h-s-h-a-r-p-764291-unsplash.jpg'       
-            }
+            },
+            editable: false
         },
         {
             localGoals: 2,
@@ -37,7 +39,8 @@ export class BettingListService {
             participant: {
                 name: 'Marta',
                 avatar: 'assets/imgs/zuza-reinhard-707831-unsplash.jpg'       
-            }
+            },
+            editable: false
         }
     ];
 
