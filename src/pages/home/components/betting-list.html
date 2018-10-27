@@ -1,13 +1,14 @@
 <ion-list >
-    <ion-card *ngFor="let match of matchDay.matchs">
-        <ion-card-header>
-            {{match.local.name}} - {{match.visitor.name}}
-        </ion-card-header>
-        <ka-bet 
-                *ngFor="let bet of match.bets"
-                [bet]="bet">
-        </ka-bet>
-    </ion-card>
+    <ion-item-group *ngFor="let match of matchDay.matchs">
+        <ion-item-divider color="light">
+                {{match.local.name}} - {{match.visitor.name}}
+                <ion-icon name="add" float-right (click)="addBet(match)">
+                </ion-icon>
+        </ion-item-divider>
+        <ion-item>
+            <ka-bet *ngFor="let bet of match.bets"
+                    [bet]="bet">
+            </ka-bet>
+        </ion-item>
+    </ion-item-group>
 </ion-list>
-
-    

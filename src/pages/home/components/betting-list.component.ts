@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import * as moment from 'moment';
 
-import { MatchDay } from '../shared';
+import { MatchDay, Match } from '../shared';
 import { BettingListService } from './betting-list.service';
 
 @Component({
@@ -23,6 +23,20 @@ export class BettingListComponent implements OnInit {
             error => console.log(error)
             
         )
+    }
+
+    /**
+     * Add an empty bet to the list.
+     */
+    public addBet(match: Match) {
+        match.bets.push({
+            participant: {
+                name: 'Luis'
+            },
+            localGoals: 0,
+            visitorGoals: 0,
+            editable: true
+        });
     }
 
     private success(matchDay: MatchDay) {
