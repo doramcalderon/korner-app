@@ -9,6 +9,7 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomeComponentModule } from '../pages/home/home.component.module';
 import { TabsPage } from '../pages/tabs/tabs';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { TabsPage } from '../pages/tabs/tabs';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     HomeComponentModule,
     IonicModule.forRoot(MyApp)
   ],

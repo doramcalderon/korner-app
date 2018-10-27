@@ -1,10 +1,45 @@
-<ion-item>
-    <ion-avatar item-start>
-        <img [src]=bet.participant.avatar>
-    </ion-avatar>
+<ion-card>
+    <ion-item>
+        <ion-avatar item-start>
+            <img [src]=bet.participant.avatar>
+        </ion-avatar>
+        <div>
+            <p>{{bet.participant.name}}</p>
+            <form [formGroup]="formGroup">
+                <div>
+                    <input ion-input 
+                            clear
+                            class="goals"
+                            [readonly]="!bet.editable"
+                            formControlName="localGoals"
+                            placeholder="0"
+                            type="number">
+                    -
+                    <input ion-input 
+                            class="goals" 
+                            [readonly]="!bet.editable" 
+                            formControlName="visitorGoals"
+                            placeholder="0"
+                            type="number">
+                </div>
+                <p>{{bet.note}}</p>
+            </form>
+        </div>
+    </ion-item>
     <div>
-        <p>{{bet.participant.name}}</p>
-        <h2>{{bet.localGoals}} - {{bet.visitorGoals}}</h2>
-        <p>{{bet.note}}</p>
-    </div>
-</ion-item>
+            <ion-row>
+                    <ion-col>
+                        <button ion-button icon-start clear small>
+                            <ion-icon name="thumbs-up" small></ion-icon>
+                            <div>12 Likes</div>
+                        </button>
+                    </ion-col>
+                    <ion-col>
+                        <button ion-button icon-start clear small>
+                            <ion-icon name="text"></ion-icon>
+                            <div>4 Comments</div>
+                        </button>
+                    </ion-col>
+                </ion-row>
+            </div>
+</ion-card>
