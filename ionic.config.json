@@ -1,7 +1,0 @@
-{
-  "name": "korner-app",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "ionic-angular"
-}
