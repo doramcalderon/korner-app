@@ -1,0 +1,40 @@
+{
+	"extends": "../tsconfig.json",
+	"compilerOptions": {
+	  "outDir": "../out-tsc/spec",
+	  "baseUrl": "./",
+	  "module": "commonjs",
+	  "target": "es5",
+	  "paths": {
+		"@app/env": [
+		  "environments/environment"
+		],
+		"@app/*": [
+		  "app/*"
+		],
+		"@core/*": [
+		  "core/*"
+		],
+		"@mocks": [
+		  "mocks"
+		]
+	  },
+	  "types": [
+		"jasmine",
+		"node"
+	  ],
+	  "typeRoots": [
+		"node_modules/@types"
+	  ],
+	  "skipLibCheck": true
+	},
+	"files": [
+	  "test.ts"
+	],
+	"include": [
+	  "mocks.ts",
+	  "**/*.spec.ts",
+	  "**/*.d.ts"
+	],
+	"exclude": []
+  }
