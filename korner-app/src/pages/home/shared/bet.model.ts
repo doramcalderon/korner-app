@@ -6,4 +6,6 @@ export interface Bet {
     visitorGoals: number;
     note?: string;
     editable: boolean;
+    likes?: boolean;
+    comments?: string[];
 }

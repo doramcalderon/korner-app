@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
 import { MatchDay, Bet } from '../shared';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 
 @Injectable()
@@ -44,7 +45,11 @@ export class BettingListService {
         }
     ];
 
-    public fetchMatchDay(date: moment.Moment): Observable<MatchDay> {
+    private readonly getMatchdaysUrl = '/korner-api/matchdays';
+
+    constructor(private http: HttpClient) {}
+
+    public fetchMockMatchDay(date: moment.Moment): Observable<MatchDay> {
         return Observable.of(
             {
                 number: '1',
@@ -72,6 +77,12 @@ export class BettingListService {
                 ]
             }
         );
+    }
+
+    public fetchMatchDay(date: moment.Moment): Observable<MatchDay> {
+        const params: HttpParams = new HttpParams().append('date', date.toISOString());
+
+        return this.http.get<MatchDay>(this.getMatchdaysUrl, { params });
     }
 
 }
