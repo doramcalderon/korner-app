@@ -18,10 +18,10 @@ export class BettingListComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.bettinglistService.fetchMatchDay(moment()).subscribe(
+        this.bettinglistService.fetchMatchDay(moment('2019-02-23')).subscribe(
             matchDay => this.success(matchDay),
             error => console.log(error)
-            
+
         )
     }
 

@@ -7,7 +7,7 @@
             <p>{{bet.participant.name}}</p>
             <form [formGroup]="formGroup">
                 <div>
-                    <input ion-input 
+                    <input ion-input
                             clear
                             class="goals"
                             [readonly]="!bet.editable"
@@ -15,9 +15,9 @@
                             placeholder="0"
                             type="number">
                     -
-                    <input ion-input 
-                            class="goals" 
-                            [readonly]="!bet.editable" 
+                    <input ion-input
+                            class="goals"
+                            [readonly]="!bet.editable"
                             formControlName="visitorGoals"
                             placeholder="0"
                             type="number">
@@ -31,13 +31,13 @@
                     <ion-col>
                         <button ion-button icon-start clear small>
                             <ion-icon name="thumbs-up" small></ion-icon>
-                            <div>12 Likes</div>
+                            <div>{{ bet.likes || '0'}} likes</div>
                         </button>
                     </ion-col>
                     <ion-col>
                         <button ion-button icon-start clear small>
                             <ion-icon name="text"></ion-icon>
-                            <div>4 Comments</div>
+                            <div>{{ bet.comments?.length || '0' }} Comments</div>
                         </button>
                     </ion-col>
                 </ion-row>

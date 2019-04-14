@@ -14,8 +14,8 @@ export class BetComponent implements OnInit {
 
     ngOnInit() {
         this.formGroup = new FormGroup({
-            localGoals: new FormControl(0),
-            visitorGoals: new FormControl(0)
+            localGoals: new FormControl(this.bet.localGoals),
+            visitorGoals: new FormControl(this.bet.visitorGoals),
         });
     }
 }
