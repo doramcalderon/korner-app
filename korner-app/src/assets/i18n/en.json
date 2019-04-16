@@ -1,1 +1,8 @@
-{}
+{
+	"BETTING_LIST": {
+		"BETS": {
+			"LIKES": "likes",
+			"COMMENTS": "comments"
+		}
+	}
+}

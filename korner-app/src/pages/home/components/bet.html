@@ -31,13 +31,13 @@
                     <ion-col>
                         <button ion-button icon-start clear small>
                             <ion-icon name="thumbs-up" small></ion-icon>
-                            <div>{{ bet.likes || '0'}} likes</div>
+                            <div>{{ bet.likes || '0'}} {{ 'BETTING_LIST.BETS.LIKES' | translate | uppercase }} </div>
                         </button>
                     </ion-col>
                     <ion-col>
                         <button ion-button icon-start clear small>
                             <ion-icon name="text"></ion-icon>
-                            <div>{{ bet.comments?.length || '0' }} Comments</div>
+                            <div>{{ bet.comments?.length || '0' }} {{ 'BETTING_LIST.BETS.COMMENTS' | translate | uppercase }}</div>
                         </button>
                     </ion-col>
                 </ion-row>
