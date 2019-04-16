@@ -27,7 +27,7 @@ export class ApiInterceptor implements HttpInterceptor {
 		const apiUrl = this.apis[apiContext];
 
 		reqToSend = request.clone({
-			url: apiUrl + '/' + url
+			url: (apiUrl || '') + '/' + url
 		});
 
 		return next.handle(reqToSend);
