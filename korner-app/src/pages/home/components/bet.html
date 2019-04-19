@@ -1,8 +1,9 @@
 <ion-card>
     <ion-item>
-        <ion-avatar item-start>
-            <img [src]=bet.participant.avatar>
-        </ion-avatar>
+        <ngx-avatar
+                [name]="bet.participant.name"
+                [src]="bet.participant.avatar"
+                item-start></ngx-avatar>
         <div>
             <p>{{bet.participant.name}}</p>
             <form [formGroup]="formGroup">
