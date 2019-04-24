@@ -1,9 +1,12 @@
 import { ObjectIdColumn, Column, Entity } from 'typeorm';
 
 @Entity()
-export class User {
+export class Registration {
 	@ObjectIdColumn()
 	id: string;
+
+	@Column()
+	expiration: Date;
 
 	@Column()
 	username: string;
@@ -13,5 +16,4 @@ export class User {
 
 	@Column()
 	password: string;
-
 }

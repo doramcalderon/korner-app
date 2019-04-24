@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { BetModule } from 'bets/bet.module';
 import { MatchDayModule } from 'matchday/matchday.module';
+import { RegistrationModule } from 'registration/registration.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { MatchDayModule } from 'matchday/matchday.module';
     TypeOrmModule.forRoot(),
     BetModule,
     MatchDayModule,
+    RegistrationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
