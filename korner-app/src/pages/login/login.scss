@@ -1,0 +1,21 @@
+page-login {
+	ion-content {
+		background-image: url('../../assets/imgs/login-background.jpeg');
+		ion-card {
+			position: absolute;
+			top: 17%;
+		}
+	}
+
+	.login__label {
+		font-size: 2rem !important;
+	}
+
+	.login__col_login {
+		text-align: center;
+	}
+
+	.login__col_signup {
+		text-align: center;
+	}
+}

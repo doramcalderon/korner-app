@@ -1,0 +1,41 @@
+<ion-content>
+	<form no-validate>
+		<ion-card>
+			<ion-card-content>
+				<ion-grid>
+					<ion-row >
+						<ion-col>
+							<ion-label stacked class="login__label">
+								{{ 'LOGIN.USERNAME.LABEL' | translate }}
+							</ion-label>
+							<ion-input placeholder="{{ 'LOGIN.USERNAME.PLACEHOLDER' | translate }}"></ion-input>
+						</ion-col>
+					</ion-row>
+					<ion-row >
+						<ion-col>
+							<ion-label stacked class="login__label">
+								{{ 'LOGIN.PASSWORD.LABEL' | translate }}
+							</ion-label>
+							<ion-input type="password" placeholder="{{ 'LOGIN.PASSWORD.PLACEHOLDER' | translate }}"></ion-input>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</ion-card-content>
+
+			<ion-row>
+				<ion-col class="login__col_login">
+					<button ion-button round>
+						{{ 'LOGIN.LOGIN' | translate }}
+					</button>
+				</ion-col>
+			</ion-row>
+			<ion-row >
+				<ion-col class="login__col_signup">
+					<button ion-button clear>
+						{{ 'LOGIN.SIGNUP' | translate }}
+					</button>
+				</ion-col>
+			</ion-row>
+		</ion-card>
+	</form>
+</ion-content>

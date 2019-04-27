@@ -4,5 +4,17 @@
 			"LIKES": "likes",
 			"COMMENTS": "comentarios"
 		}
+	},
+	"LOGIN": {
+		"USERNAME": {
+			"LABEL": "Usuario",
+			"PLACEHOLDER": "Introduce tu usuario"
+		},
+		"PASSWORD": {
+			"LABEL": "Contraseña",
+			"PLACEHOLDER": "Introduce tu contraseña"
+		},
+		"LOGIN": "Login",
+		"SIGNUP": "Regístrate!"
 	}
 }

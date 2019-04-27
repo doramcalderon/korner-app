@@ -11,6 +11,7 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomeComponentModule } from '../pages/home/home.component.module';
 import { TabsPage } from '../pages/tabs/tabs';
 import { MyApp } from './app.component';
+import { LoginModule } from '../pages/login/login.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { MyApp } from './app.component';
     ReactiveFormsModule,
     CoreModule,
     HomeComponentModule,
+    LoginModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
