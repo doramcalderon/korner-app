@@ -7,6 +7,14 @@ page-login {
 		}
 	}
 
+	ion-input.ng-invalid.ng-dirty {
+			border-bottom: 1px solid red;
+	}
+
+	ion-input.ng-valid {
+		border-bottom: 1px solid greenyellow;
+	}
+
 	.login__label {
 		font-size: 2rem !important;
 	}
