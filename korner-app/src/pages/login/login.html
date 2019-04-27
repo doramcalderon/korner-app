@@ -1,5 +1,5 @@
 <ion-content>
-	<form [formGroup]="formGroup" (ngSubmit)="onSubmit()" no-validate>
+	<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" no-validate>
 		<ion-card>
 			<ion-card-content>
 				<ion-grid>
@@ -33,7 +33,7 @@
 
 			<ion-row>
 				<ion-col class="login__col_login">
-					<button ion-button round type="submit">
+					<button ion-button round type="submit" [disabled]="loginForm.invalid">
 						{{ 'LOGIN.LOGIN' | translate }}
 					</button>
 				</ion-col>

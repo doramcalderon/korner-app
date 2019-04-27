@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
-import { FormGroup, FormBuilder } from "@angular/forms";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { LoginService } from "./login.service";
 
 @Component({
 	selector: 'page-login',
@@ -9,7 +9,10 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 export class LoginPage {
 	loginForm: FormGroup;
 
-	constructor(private formBuilder: FormBuilder) {}
+	constructor(
+		private formBuilder: FormBuilder,
+		private loginService: LoginService,
+	) {}
 
 	ngOnInit() {
 		this.loginForm = this.formBuilder.group({
@@ -18,5 +21,14 @@ export class LoginPage {
 		});
 	}
 
-	onSubmit() {}
+	onSubmit() {
+		const { username, password } = this.loginForm.value;
+
+		if (this.loginForm.valid) {
+			this.loginService.login(username, password).subscribe(
+				token => console.log(`token: ${token}`)
+			);
+		}
+
+	}
 }
