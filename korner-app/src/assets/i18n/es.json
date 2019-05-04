@@ -16,5 +16,11 @@
 		},
 		"LOGIN": "Login",
 		"SIGNUP": "Regístrate!"
+	},
+	"PROFILE": {
+		"TITLE": "Perfil"
+	},
+	"TABS": {
+		"PROFILE": "Perfil"
 	}
 }

@@ -4,14 +4,16 @@ import { IonicPageModule } from 'ionic-angular';
 import { AvatarModule } from 'ngx-avatar';
 
 import { ProfilePage } from './profile';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
     ProfilePage,
   ],
   imports: [
-    AvatarModule,
     IonicPageModule.forChild(ProfilePage),
+    TranslateModule.forChild(),
+    AvatarModule,
   ],
 })
 export class ProfilePageModule {}
