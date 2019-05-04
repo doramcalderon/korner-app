@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
+
+import { AvatarModule } from 'ngx-avatar';
+
 import { ProfilePage } from './profile';
 
 @NgModule({
@@ -7,6 +10,7 @@ import { ProfilePage } from './profile';
     ProfilePage,
   ],
   imports: [
+    AvatarModule,
     IonicPageModule.forChild(ProfilePage),
   ],
 })
