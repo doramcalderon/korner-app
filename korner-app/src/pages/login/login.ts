@@ -1,6 +1,10 @@
-import { Component } from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { LoginService } from "./login.service";
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NavController } from 'ionic-angular';
+
+import { HomePage } from '../home/home';
+import { LoginService } from './login.service';
+
 
 @Component({
 	selector: 'page-login',
@@ -12,6 +16,7 @@ export class LoginPage {
 	constructor(
 		private formBuilder: FormBuilder,
 		private loginService: LoginService,
+		private navCtrl: NavController,
 	) {}
 
 	ngOnInit() {
@@ -26,9 +31,14 @@ export class LoginPage {
 
 		if (this.loginForm.valid) {
 			this.loginService.login(username, password).subscribe(
-				token => console.log(`token: ${token}`)
+				token => this.goToHome()
 			);
 		}
 
 	}
+
+	private goToHome(): void {
+		this.navCtrl.push(HomePage);
+	}
+
 }
