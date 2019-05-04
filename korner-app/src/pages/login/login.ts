@@ -2,9 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController } from 'ionic-angular';
 
-import { HomePage } from '../home/home';
+import { TabsPage } from '../tabs/tabs';
 import { LoginService } from './login.service';
-
 
 @Component({
 	selector: 'page-login',
@@ -39,7 +38,7 @@ export class LoginPage {
 	}
 
 	private goToHome(): void {
-		this.navCtrl.push(HomePage);
+		this.navCtrl.push(TabsPage);
 	}
 
 	private setLoginInvalid() {
