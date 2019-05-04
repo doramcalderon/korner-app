@@ -5,6 +5,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 import { ApiInterceptor } from './http/api.interceptor';
 import { MyMissingTranslationHandler } from './missing-translation-handler.service';
+import { AuthenticationService } from './auth/authentication.service';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -26,7 +27,8 @@ export function createTranslateLoader(http: HttpClient) {
         }),
 	],
 	providers: [
-		{ provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
+        AuthenticationService,
+        { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
 	],
 	exports: [
 		TranslateModule,
