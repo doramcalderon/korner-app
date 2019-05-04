@@ -31,7 +31,8 @@ export class LoginPage {
 
 		if (this.loginForm.valid) {
 			this.loginService.login(username, password).subscribe(
-				token => this.goToHome()
+				token => this.goToHome(),
+				error => this.setLoginInvalid()
 			);
 		}
 
@@ -41,4 +42,8 @@ export class LoginPage {
 		this.navCtrl.push(HomePage);
 	}
 
+	private setLoginInvalid() {
+		this.loginForm.controls.username.setErrors({'invalid': true});
+		this.loginForm.controls.password.setErrors({'invalid': true});
+	}
 }
