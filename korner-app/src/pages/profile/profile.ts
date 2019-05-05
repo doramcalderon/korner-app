@@ -1,22 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the ProfilePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Profile } from './profile.model';
+import { ProfileService } from './profile.service';
 
 @IonicPage()
 @Component({
   selector: 'page-profile',
   templateUrl: 'profile.html',
 })
-export class ProfilePage {
+export class ProfilePage implements OnInit {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  profile: Profile;
+  fullName: string;
+
+  constructor(
+      public navCtrl: NavController,
+      public navParams: NavParams,
+      public profileService: ProfileService,
+  ) {}
+
+  ngOnInit() {
+    this.profileService.fetchProfile().subscribe(
+        profile => this.handleProfile(profile),
+        error => this.handleError(error),
+    )
   }
 
+  private handleProfile(profile: Profile) {
+    this.profile = profile;
 
+    if(profile) {
+      this.fullName = `${profile.name} ${profile.surname}`;
+    }
+  }
+
+  private handleError(error: any) {
+      console.error(`Error ${JSON.stringify(error)}`);
+  }
 }
