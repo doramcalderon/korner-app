@@ -16,4 +16,8 @@ export class AuthenticationService {
 	getToken(): Observable<string> {
 		return Observable.from(this.storage.get(this.TOKEN_KEY));
 	}
+
+	removeToken(): Observable<string> {
+		return Observable.from(this.storage.remove(this.TOKEN_KEY));
+	}
 }

@@ -25,4 +25,8 @@ export class LoginService {
 		);
 	}
 
+	public logout(): Observable<string> {
+		return this.auth.removeToken();
+	}
+
 }
