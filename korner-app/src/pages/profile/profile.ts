@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { Profile } from './profile.model';
 import { ProfileService } from './profile.service';
+import { LoginService } from '../login/login.service';
+import { LoginPage } from '../login/login';
 
 @IonicPage()
 @Component({
@@ -18,6 +20,7 @@ export class ProfilePage implements OnInit {
       public navCtrl: NavController,
       public navParams: NavParams,
       public profileService: ProfileService,
+      public loginService: LoginService,
   ) {}
 
   ngOnInit() {
@@ -25,6 +28,13 @@ export class ProfilePage implements OnInit {
         profile => this.handleProfile(profile),
         error => this.handleError(error),
     )
+  }
+
+  logout() {
+    this.loginService.logout().subscribe(
+        () => this.navCtrl.push(LoginPage)
+    );
+
   }
 
   private handleProfile(profile: Profile) {

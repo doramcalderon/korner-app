@@ -7,6 +7,7 @@ import { AvatarModule } from 'ngx-avatar';
 import { CoreModule } from '../../core/core.module';
 import { ProfilePage } from './profile';
 import { ProfileService } from './profile.service';
+import { LoginService } from '../login/login.service';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ProfileService } from './profile.service';
     CoreModule,
   ],
   providers: [
+    LoginService,
     ProfileService,
   ]
 })

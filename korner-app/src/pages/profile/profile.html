@@ -12,7 +12,7 @@
   </div>
 
   <ion-list class="profile__list_actions">
-    <button ion-item icon-start>
+    <button ion-item icon-start (click)="logout()">
       <ion-icon name="power"></ion-icon>
       {{ 'PROFILE.ACTIONS.LOGOUT' | translate }}
     </button>
