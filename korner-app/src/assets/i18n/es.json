@@ -20,6 +20,25 @@
 	"PROFILE": {
 		"TITLE": "Perfil"
 	},
+	"REGISTRATION": {
+		"FIRST_NAME": {
+			"LABEL": "Nombre",
+			"PLACEHOLDER": "Introduce tu nombre"
+		},
+		"LAST_NAME": {
+			"LABEL": "Apellidos",
+			"PLACEHOLDER": "Introduce tus apellidos"
+		},
+		"EMAIL": {
+			"LABEL": "Email",
+			"PLACEHOLDER": "Introduce tu correo"
+		},
+		"PASSWORD": {
+			"LABEL": "Contraseña",
+			"PLACEHOLDER": "Introduce tu contraseña"
+		},
+		"SIGNUP": "Registrar"
+	},
 	"TABS": {
 		"PROFILE": "Perfil"
 	}

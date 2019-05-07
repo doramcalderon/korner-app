@@ -23,6 +23,26 @@
 			"LOGOUT": "Logout"
 		}
 	},
+	"REGISTRATION": {
+		"FIRST_NAME": {
+			"LABEL": "First name",
+			"PLACEHOLDER": "Enter your first name"
+		},
+		"LAST_NAME": {
+			"LABEL": "Last name",
+			"PLACEHOLDER": "Enter your last name"
+		},
+		"EMAIL": {
+			"LABEL": "Email",
+			"PLACEHOLDER": "Enter your email"
+		},
+		"PASSWORD": {
+			"LABEL": "Password",
+			"PLACEHOLDER": "Enter your password"
+		},
+		"SIGNUP": "Sign Up",
+		"SIGNIN": "Return to sign in"
+	},
 	"TABS": {
 		"PROFILE": "Profile"
 	}
