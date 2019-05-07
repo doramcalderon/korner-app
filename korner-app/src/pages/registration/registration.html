@@ -13,6 +13,11 @@
                   formControlName="name"
 									placeholder="{{ 'REGISTRATION.FIRST_NAME.PLACEHOLDER' | translate }}">
               </ion-input>
+              <div ngxErrors="name" class="errors">
+                  <div ngxError="required" when="touched">
+                    {{ 'REGISTRATION.FIRST_NAME.REQUIRED' | translate }}
+                  </div>
+              </div>
 						</ion-col>
 					</ion-row>
 					<ion-row >
@@ -36,6 +41,16 @@
                   formControlName="email"
                   placeholder="{{ 'REGISTRATION.EMAIL.PLACEHOLDER' | translate }}">
               </ion-input>
+              <div ngxErrors="email" class="errors">
+                  <div ngxError="required" when="touched">
+                    {{ 'REGISTRATION.EMAIL.REQUIRED' | translate }}
+                  </div>
+              </div>
+              <div ngxErrors="email" class="errors">
+                  <div ngxError="email" when="touched">
+                    {{ 'REGISTRATION.EMAIL.INVALID' | translate }}
+                  </div>
+              </div>
 						</ion-col>
 					</ion-row>
 					<ion-row >
@@ -49,6 +64,11 @@
 									type="password"
 									placeholder="{{ 'REGISTRATION.PASSWORD.PLACEHOLDER' | translate }}">
               </ion-input>
+              <div ngxErrors="password" class="errors">
+                  <div ngxError="required" when="touched">
+                    {{ 'REGISTRATION.PASSWORD.REQUIRED' | translate }}
+                  </div>
+              </div>
 						</ion-col>
 					</ion-row>
 				</ion-grid>
@@ -64,7 +84,7 @@
 
       <ion-row >
           <ion-col class="registration__col_signin">
-            <button ion-button clear>
+            <button ion-button clear (click)="goToLogin()">
               {{ 'REGISTRATION.SIGNIN' | translate }}
             </button>
           </ion-col>

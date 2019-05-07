@@ -6,6 +6,11 @@ page-registration {
 			top: 6%;
 		}
 	}
+	.errors {
+		color: red;
+		margin-top: 0.8rem;
+	}
+
 	ion-input.ng-invalid.ng-touched {
 			border-bottom: 1px solid red;
 	}

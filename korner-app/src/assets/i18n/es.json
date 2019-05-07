@@ -23,7 +23,8 @@
 	"REGISTRATION": {
 		"FIRST_NAME": {
 			"LABEL": "Nombre",
-			"PLACEHOLDER": "Introduce tu nombre"
+			"PLACEHOLDER": "Introduce tu nombre",
+			"REQUIRED": "El nombre es obligatorio"
 		},
 		"LAST_NAME": {
 			"LABEL": "Apellidos",
@@ -31,11 +32,14 @@
 		},
 		"EMAIL": {
 			"LABEL": "Email",
-			"PLACEHOLDER": "Introduce tu correo"
+			"PLACEHOLDER": "Introduce tu correo",
+			"REQUIRED": "El correo es obligatorio",
+			"INVALID": "Correo incorrecto"
 		},
 		"PASSWORD": {
 			"LABEL": "Contraseña",
-			"PLACEHOLDER": "Introduce tu contraseña"
+			"PLACEHOLDER": "Introduce tu contraseña",
+			"REQUIRED": "La contraseña es obligatoria"
 		},
 		"SIGNUP": "Registrar"
 	},
