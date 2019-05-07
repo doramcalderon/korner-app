@@ -37,6 +37,10 @@ export class LoginPage {
 
 	}
 
+	goToRegistration() {
+		this.navCtrl.push('RegistrationPage');
+	}
+
 	private goToHome(): void {
 		this.navCtrl.push(TabsPage);
 	}
