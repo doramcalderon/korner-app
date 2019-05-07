@@ -50,7 +50,7 @@ export class ApiInterceptor implements HttpInterceptor {
 		if (!this.isPublicApi(request.url)) {
 			return this.getToken(apiContext).pipe(
 				switchMap(token => {
-					const requestWithHeaders = this.addToken(token['accessToken'], reqToSend);
+					const requestWithHeaders = this.addToken(token, reqToSend);
 					return next.handle(requestWithHeaders);
 				})
 			)
@@ -68,13 +68,14 @@ export class ApiInterceptor implements HttpInterceptor {
 		return (!!apiToken) ? Observable.of(apiToken) : this.auth.getToken();
 	}
 
-	private addToken(token: string, request: HttpRequest<any>): HttpRequest<any> {
+	private addToken(token: any, request: HttpRequest<any>): HttpRequest<any> {
 
 		if (!!token) {
-			set(this.apis[token], 'token', token);
+			const accessToken = token['accessToken'];
+			set(this.apis[accessToken], 'token', token);
 			return request.clone({
 				headers: new HttpHeaders({
-					'Authorization': `Bearer ${token}`
+					'Authorization': `Bearer ${accessToken}`
 				})
 			});
 		}
