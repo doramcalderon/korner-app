@@ -1,19 +1,44 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { IonicPage, NavController } from 'ionic-angular';
 
+import { LoginPage } from '../login/login';
 
 @IonicPage()
 @Component({
   selector: 'page-registration',
   templateUrl: 'registration.html',
 })
-export class RegistrationPage {
+export class RegistrationPage implements OnInit {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  registrationForm: FormGroup;
+
+  constructor(
+    public navCtrl: NavController,
+    private formBuilder: FormBuilder,
+  ) {}
+
+  ngOnInit() {
+    this.registrationForm = this.formBuilder.group({
+			name: ['', Validators.required],
+			lastName: [''],
+			email: ['', [Validators.required, Validators.email]],
+			password: ['', Validators.required],
+		});
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RegistrationPage');
+  goToLogin() {
+    this.navCtrl.push(LoginPage);
+  }
+
+  onSubmit() {
+      if (this.registrationForm.valid) {
+          console.log('call to registration api');
+      } else {
+        this.registrationForm.get('name').markAsTouched();
+        this.registrationForm.get('email').markAsTouched();
+        this.registrationForm.get('password').markAsTouched();
+      }
   }
 
 }

@@ -1,5 +1,5 @@
 <ion-content>
-	<form no-validate>
+	<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" no-validate>
 		<ion-card>
 			<ion-card-content>
 				<ion-grid>
@@ -8,9 +8,11 @@
 							<ion-label stacked class="registration__label">
 								{{ 'REGISTRATION.FIRST_NAME.LABEL' | translate }}
 							</ion-label>
-							<ion-input
+              <ion-input
+                  required
+                  formControlName="name"
 									placeholder="{{ 'REGISTRATION.FIRST_NAME.PLACEHOLDER' | translate }}">
-							</ion-input>
+              </ion-input>
 						</ion-col>
 					</ion-row>
 					<ion-row >
@@ -18,9 +20,10 @@
 							<ion-label stacked class="registration__label">
 								{{ 'REGISTRATION.LAST_NAME.LABEL' | translate }}
 							</ion-label>
-							<ion-input
+              <ion-input
+                  formControlName="lastName"
 									placeholder="{{ 'REGISTRATION.LAST_NAME.PLACEHOLDER' | translate }}">
-							</ion-input>
+              </ion-input>
 						</ion-col>
 					</ion-row>
 					<ion-row >
@@ -28,9 +31,11 @@
 							<ion-label stacked class="registration__label">
 								{{ 'REGISTRATION.EMAIL.LABEL' | translate }}
 							</ion-label>
-							<ion-input
-									placeholder="{{ 'REGISTRATION.EMAIL.PLACEHOLDER' | translate }}">
-							</ion-input>
+              <ion-input
+                  required
+                  formControlName="email"
+                  placeholder="{{ 'REGISTRATION.EMAIL.PLACEHOLDER' | translate }}">
+              </ion-input>
 						</ion-col>
 					</ion-row>
 					<ion-row >
@@ -38,10 +43,12 @@
 							<ion-label stacked class="registration__label">
 								{{ 'REGISTRATION.PASSWORD.LABEL' | translate }}
 							</ion-label>
-							<ion-input
+              <ion-input
+                  required
+                  formControlName="password"
 									type="password"
 									placeholder="{{ 'REGISTRATION.PASSWORD.PLACEHOLDER' | translate }}">
-							</ion-input>
+              </ion-input>
 						</ion-col>
 					</ion-row>
 				</ion-grid>
