@@ -38,15 +38,15 @@
 							</ion-label>
               <ion-input
                   required
-                  formControlName="email"
+                  formControlName="mail"
                   placeholder="{{ 'REGISTRATION.EMAIL.PLACEHOLDER' | translate }}">
               </ion-input>
-              <div ngxErrors="email" class="errors">
+              <div ngxErrors="mail" class="errors">
                   <div ngxError="required" when="touched">
                     {{ 'REGISTRATION.EMAIL.REQUIRED' | translate }}
                   </div>
               </div>
-              <div ngxErrors="email" class="errors">
+              <div ngxErrors="mail" class="errors">
                   <div ngxError="email" when="touched">
                     {{ 'REGISTRATION.EMAIL.INVALID' | translate }}
                   </div>
