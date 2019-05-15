@@ -2,9 +2,9 @@ import { Injectable, NotFoundException, BadRequestException } from '@nestjs/comm
 import { InjectRepository } from '@nestjs/typeorm';
 
 import * as moment from 'moment';
-import { from, of } from 'rxjs';
+import { from, of, fromEventPattern, Observable } from 'rxjs';
 import { tap, catchError, switchMap } from 'rxjs/operators';
-import { Repository, ObjectID, DeleteResult } from 'typeorm';
+import { Repository } from 'typeorm';
 
 import { User } from '../users/entities/user.entity';
 import { RegistrationDto } from './dto/registration.dto';
@@ -21,14 +21,27 @@ export class RegistrationService {
 	) {}
 
 	public async createRegistration(registrationDto: RegistrationDto): Promise<Registration> {
+		return await this.registrationRepository.findOne({mail: registrationDto.mail}).then(
+			registration => this.createOrUpdate(registration, registrationDto),
+		);
+	}
+
+	private createOrUpdate(registrationFound: Registration, registrationDto: RegistrationDto): Promise<Registration> {
 		const username: string = registrationDto.mail.split('@')[0];
 		const expiration: Date = moment().add(5, 'days').toDate();
-
-		return await this.registrationRepository.save({
+		const registration = {
 			...registrationDto,
 			username,
 			expiration,
-		});
+		} as Registration;
+
+		return (!!registrationFound)
+			?  this.registrationRepository.update(
+					{id: registrationFound.id},
+					registration).then(
+						result => registration,
+					)
+			: this.registrationRepository.save(registration);
 	}
 
 	public async confirmAndCreateUser(code: string): Promise<any> {
