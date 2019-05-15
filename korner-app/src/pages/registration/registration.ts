@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { IonicPage, NavController } from 'ionic-angular';
 
 import { LoginPage } from '../login/login';
+import { RegistrationService } from './registration.service';
+import { Registration } from './registration.model';
 
 @IonicPage()
 @Component({
@@ -16,6 +18,7 @@ export class RegistrationPage implements OnInit {
   constructor(
     public navCtrl: NavController,
     private formBuilder: FormBuilder,
+    private registrationSvc: RegistrationService,
   ) {}
 
   ngOnInit() {
@@ -33,7 +36,10 @@ export class RegistrationPage implements OnInit {
 
   onSubmit() {
       if (this.registrationForm.valid) {
-          console.log('call to registration api');
+          const registration = this.registrationForm.value as Registration;
+          this.registrationSvc.signUp(registration).subscribe(
+            () => console.log('registration successful')
+          )
       } else {
         this.registrationForm.get('name').markAsTouched();
         this.registrationForm.get('email').markAsTouched();

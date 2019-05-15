@@ -3,6 +3,7 @@ import { IonicPageModule } from 'ionic-angular';
 import { RegistrationPage } from './registration';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
+import { RegistrationService } from './registration.service';
 
 @NgModule({
   declarations: [
@@ -13,5 +14,8 @@ import { NgxErrorsModule } from '@ultimate/ngxerrors';
     TranslateModule.forChild(),
     NgxErrorsModule,
   ],
+  providers: [
+    RegistrationService,
+  ]
 })
 export class RegistrationPageModule {}
