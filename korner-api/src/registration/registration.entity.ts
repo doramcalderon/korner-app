@@ -16,4 +16,10 @@ export class Registration {
 
 	@Column()
 	password: string;
+
+	@Column()
+	name: string;
+
+	@Column()
+	lastname: string;
 }
