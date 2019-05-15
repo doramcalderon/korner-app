@@ -26,6 +26,17 @@ export class RegistrationService {
 		);
 	}
 
+	public async confirmAndCreateUser(code: string): Promise<any> {
+		let registrationFound: Registration;
+
+		return await from(this.registrationRepository.findOneOrFail(code)).pipe(
+			tap(registration => registrationFound = registration),
+			switchMap(registration => this.createUser(registration)),
+			switchMap(() => this.deleteRegistration(registrationFound)),
+			catchError(error => of(new NotFoundException('Registration not found'))),
+		);
+	}
+
 	private createOrUpdate(registrationFound: Registration, registrationDto: RegistrationDto): Promise<Registration> {
 		const username: string = registrationDto.mail.split('@')[0];
 		const expiration: Date = moment().add(5, 'days').toDate();
@@ -42,17 +53,6 @@ export class RegistrationService {
 						result => registration,
 					)
 			: this.registrationRepository.save(registration);
-	}
-
-	public async confirmAndCreateUser(code: string): Promise<any> {
-		let registrationFound: Registration;
-
-		return await from(this.registrationRepository.findOneOrFail(code)).pipe(
-			tap(registration => registrationFound = registration),
-			switchMap(registration => this.createUser(registration)),
-			switchMap(() => this.deleteRegistration(registrationFound)),
-			catchError(error => of(new NotFoundException('Registration not found'))),
-		);
 	}
 
 	private hasExpired(registration: Registration): boolean {
