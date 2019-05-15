@@ -22,7 +22,7 @@ export class RegistrationPage implements OnInit {
     this.registrationForm = this.formBuilder.group({
 			name: ['', Validators.required],
 			lastName: [''],
-			email: ['', [Validators.required, Validators.email]],
+			mail: ['', [Validators.required, Validators.email]],
 			password: ['', Validators.required],
 		});
   }
