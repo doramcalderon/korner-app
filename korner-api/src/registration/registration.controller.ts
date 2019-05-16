@@ -14,8 +14,8 @@ export class RegistrationController {
 	@Post()
 	@HttpCode(HttpStatus.CREATED)
 	@ApiCreatedResponse({ description: 'The record has been successfully created.'})
-	signUp(@Body() registrationDto: RegistrationDto) {
-		this.registrationService.createRegistration(registrationDto);
+	signUp(@Body() registrationDto: RegistrationDto): Promise<Registration> {
+		return this.registrationService.createNewRegistration(registrationDto);
 	}
 
 	@Put(':id/confirm')

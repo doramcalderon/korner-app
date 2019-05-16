@@ -2,14 +2,13 @@ import { Injectable, NotFoundException, BadRequestException } from '@nestjs/comm
 import { InjectRepository } from '@nestjs/typeorm';
 
 import * as moment from 'moment';
-import { from, of, fromEventPattern, Observable } from 'rxjs';
+import { from, of } from 'rxjs';
 import { tap, catchError, switchMap } from 'rxjs/operators';
 import { Repository } from 'typeorm';
 
 import { User } from '../users/entities/user.entity';
 import { RegistrationDto } from './dto/registration.dto';
 import { Registration } from './registration.entity';
-
 
 @Injectable()
 export class RegistrationService {
@@ -20,10 +19,12 @@ export class RegistrationService {
 		private readonly userRepository: Repository<User>,
 	) {}
 
-	public async createRegistration(registrationDto: RegistrationDto): Promise<Registration> {
-		return await this.registrationRepository.findOne({mail: registrationDto.mail}).then(
-			registration => this.createOrUpdate(registration, registrationDto),
-		);
+	public async createNewRegistration(registrationDto: RegistrationDto): Promise<Registration> {
+		return await from(this.registrationRepository.findOne({mail: registrationDto.mail})).pipe(
+			switchMap(registration => this.deleteRegistration(registration)),
+			switchMap(registration => this.createRegistration(registrationDto)),
+			catchError(error => Promise.reject(error)),
+		).toPromise();
 	}
 
 	public async confirmAndCreateUser(code: string): Promise<any> {
@@ -37,7 +38,7 @@ export class RegistrationService {
 		);
 	}
 
-	private createOrUpdate(registrationFound: Registration, registrationDto: RegistrationDto): Promise<Registration> {
+	private async createRegistration(registrationDto: RegistrationDto): Promise<Registration> {
 		const username: string = registrationDto.mail.split('@')[0];
 		const expiration: Date = moment().add(5, 'days').toDate();
 		const registration = {
@@ -45,14 +46,7 @@ export class RegistrationService {
 			username,
 			expiration,
 		} as Registration;
-
-		return (!!registrationFound)
-			?  this.registrationRepository.update(
-					{id: registrationFound.id},
-					registration).then(
-						result => registration,
-					)
-			: this.registrationRepository.save(registration);
+		return await this.registrationRepository.save(registration);
 	}
 
 	private hasExpired(registration: Registration): boolean {
@@ -72,8 +66,9 @@ export class RegistrationService {
 	}
 
 	private async deleteRegistration(registration: Registration): Promise<Registration> {
-		// console.log(`registrationId: ${registrationId}`);
-		return await this.registrationRepository.remove(registration);
+		return (!!registration)
+			? await this.registrationRepository.remove(registration)
+			: Promise.resolve(undefined);
 	}
 
 }
