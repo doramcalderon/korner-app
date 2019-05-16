@@ -1,7 +1,9 @@
-import { Controller, Post, Body, Res, HttpCode, Get, Param, Put, HttpStatus } from '@nestjs/common';
+import { Controller, Post, Body, HttpCode, Param, Put, HttpStatus } from '@nestjs/common';
 import { ApiCreatedResponse } from '@nestjs/swagger';
+
 import { RegistrationDto } from './dto/registration.dto';
 import { RegistrationService } from './registration.service';
+import { Registration } from './registration.entity';
 
 @Controller('registration')
 export class RegistrationController {
