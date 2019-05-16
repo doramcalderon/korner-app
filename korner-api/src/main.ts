@@ -2,6 +2,10 @@ import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
+import * as dotenv from 'dotenv';
+
+dotenv.config(); // Do it before importing our own code so the environment variables are set before configuring
+
 import { AppModule } from './app.module';
 
 async function bootstrap() {
