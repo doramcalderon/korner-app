@@ -15,16 +15,19 @@ import { AppService } from './app.service';
     TypeOrmModule.forRoot(),
     MailerModule.forRoot({
       transport: {
-          host: process.env.MAILER_HOST,
-          port: parseInt(process.env.MAILER_PORT, 10),
-          secure: process.env.MAILER_SECURE === 'true',
-          auth: {
-              user: process.env.MAILER_USER,
-              pass: process.env.MAILER_PASS,
-          },
+        host: process.env.MAILER_HOST,
+        port: parseInt(process.env.MAILER_PORT, 10),
+        secure: process.env.MAILER_SECURE === 'true',
+        auth: {
+          user: process.env.MAILER_USER,
+          pass: process.env.MAILER_PASS,
+        },
+        tls: {
+          rejectUnauthorized: false,
+        },
       },
       defaults: {
-          from: process.env.MAILER_FROM,
+        from: process.env.MAILER_FROM,
       },
       template: {
         dir: './src/common/email-templates',
