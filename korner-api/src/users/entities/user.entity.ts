@@ -2,22 +2,24 @@ import { ObjectIdColumn, Column, Entity } from 'typeorm';
 
 @Entity()
 export class User {
-	@ObjectIdColumn()
-	id: string;
+  @ObjectIdColumn()
+  id: string;
 
-	@Column()
-	username: string;
+  @Column()
+  username: string;
 
-	@Column()
-	mail: string;
+  @Column()
+  mail: string;
 
-	@Column()
-	password: string;
+  @Column()
+  password: string;
 
-	@Column()
-	name: string;
+  @Column()
+  name: string;
 
-	@Column()
-	lastname: string;
+  @Column()
+  surname: string;
 
+  @Column()
+  credit: number;
 }
