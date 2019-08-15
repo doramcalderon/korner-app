@@ -5,6 +5,9 @@
             "COMMENTS": "comments"
         }
     },
+    "HOME": {
+        "NO_CREDIT": "You don't have enough credit!"
+    },
     "LOGIN": {
         "USERNAME": {
             "LABEL": "Username",
