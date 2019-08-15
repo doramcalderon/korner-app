@@ -56,6 +56,7 @@ export function createTranslateLoader(http: HttpClient) {
         StatusBar,
         SplashScreen,
         { provide: ErrorHandler, useClass: IonicErrorHandler },
+        ProfileService,
     ],
 })
 export class AppModule {}

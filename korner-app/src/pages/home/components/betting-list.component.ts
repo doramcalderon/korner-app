@@ -2,40 +2,50 @@ import { Component, OnInit } from '@angular/core';
 
 import * as moment from 'moment';
 
-import { MatchDay, Match } from '../shared';
+import { ProfileService } from '../../profile/profile.service';
+import { MatchDay, Match, Bet } from '../shared';
 import { BettingListService } from './betting-list.service';
 
 @Component({
     selector: 'ka-betting-list',
-    templateUrl: 'betting-list.html'
+    templateUrl: 'betting-list.html',
 })
 export class BettingListComponent implements OnInit {
-
     betsByMatch: Object;
     matchDay: MatchDay;
+    newBet: Bet;
 
-    constructor(private bettinglistService: BettingListService) {
-    }
+    constructor(
+        private bettinglistService: BettingListService,
+        private profileService: ProfileService,
+    ) {}
 
     ngOnInit() {
-        this.bettinglistService.fetchMatchDay(moment('2019-02-23')).subscribe(
-            matchDay => this.success(matchDay),
-            error => console.log(error)
-
-        )
+        this.bettinglistService
+            .fetchMatchDay(moment('2019-02-23'))
+            .subscribe(
+                matchDay => this.success(matchDay),
+                error => console.log(error),
+            );
     }
 
     /**
      * Add an empty bet to the list.
      */
     public addBet(match: Match) {
+        this.profileService
+            .fetchProfile()
+            .subscribe(profile => this.initializeBet(match, profile.name));
+    }
+
+    private initializeBet(match: Match, userName: string) {
         match.bets.push({
             participant: {
-                name: 'Luis'
+                name: userName,
             },
             localGoals: 0,
             visitorGoals: 0,
-            editable: true
+            editable: true,
         });
     }
 
