@@ -1,14 +1,18 @@
 page-profile {
-	.profile__container_user {
-		display: flex;
-		align-items: center;
-	}
+    .profile__container_user {
+        display: flex;
+        align-items: center;
+    }
 
-	.profile__item_name {
-		margin-left: 0.4rem;
-	}
+    .profile__item_credit {
+        margin-top: 1.2rem;
+    }
 
-	.profile__list_actions {
-		margin-top: 4rem;
-	}
+    .profile__item_name {
+        margin-left: 0.4rem;
+    }
+
+    .profile__list_actions {
+        margin-top: 4rem;
+    }
 }

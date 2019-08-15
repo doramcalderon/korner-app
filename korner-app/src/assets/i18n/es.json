@@ -1,49 +1,58 @@
 {
-	"BETTING_LIST": {
-		"BETS": {
-			"LIKES": "likes",
-			"COMMENTS": "comentarios"
-		}
-	},
-	"LOGIN": {
-		"USERNAME": {
-			"LABEL": "Usuario",
-			"PLACEHOLDER": "Introduce tu usuario"
-		},
-		"PASSWORD": {
-			"LABEL": "Contraseña",
-			"PLACEHOLDER": "Introduce tu contraseña"
-		},
-		"LOGIN": "Login",
-		"SIGNUP": "Regístrate!"
-	},
-	"PROFILE": {
-		"TITLE": "Perfil"
-	},
-	"REGISTRATION": {
-		"FIRST_NAME": {
-			"LABEL": "Nombre",
-			"PLACEHOLDER": "Introduce tu nombre",
-			"REQUIRED": "El nombre es obligatorio"
-		},
-		"LAST_NAME": {
-			"LABEL": "Apellidos",
-			"PLACEHOLDER": "Introduce tus apellidos"
-		},
-		"EMAIL": {
-			"LABEL": "Email",
-			"PLACEHOLDER": "Introduce tu correo",
-			"REQUIRED": "El correo es obligatorio",
-			"INVALID": "Correo incorrecto"
-		},
-		"PASSWORD": {
-			"LABEL": "Contraseña",
-			"PLACEHOLDER": "Introduce tu contraseña",
-			"REQUIRED": "La contraseña es obligatoria"
-		},
-		"SIGNUP": "Registrar"
-	},
-	"TABS": {
-		"PROFILE": "Perfil"
-	}
+    "BETTING_LIST": {
+        "BETS": {
+            "LIKES": "likes",
+            "COMMENTS": "comentarios"
+        }
+    },
+    "LOGIN": {
+        "USERNAME": {
+            "LABEL": "Usuario",
+            "PLACEHOLDER": "Introduce tu usuario"
+        },
+        "PASSWORD": {
+            "LABEL": "Contraseña",
+            "PLACEHOLDER": "Introduce tu contraseña"
+        },
+        "LOGIN": "Login",
+        "SIGNUP": "Regístrate!"
+    },
+    "PROFILE": {
+        "TITLE": "Perfil",
+        "USERNAME": "Usuario",
+        "CREDIT": "Crédito",
+        "ACTIONS": {
+            "LOGOUT": "Desconectar"
+        }
+    },
+    "REGISTRATION": {
+        "FIRST_NAME": {
+            "LABEL": "Nombre",
+            "PLACEHOLDER": "Introduce tu nombre",
+            "REQUIRED": "El nombre es obligatorio"
+        },
+        "LAST_NAME": {
+            "LABEL": "Apellidos",
+            "PLACEHOLDER": "Introduce tus apellidos"
+        },
+        "EMAIL": {
+            "LABEL": "Email",
+            "PLACEHOLDER": "Introduce tu correo",
+            "REQUIRED": "El correo es obligatorio",
+            "INVALID": "Correo incorrecto"
+        },
+        "PASSWORD": {
+            "LABEL": "Contraseña",
+            "PLACEHOLDER": "Introduce tu contraseña",
+            "REQUIRED": "La contraseña es obligatoria"
+        },
+        "SIGNUP": "Registrar",
+        "CHECK_MAIL": "Por favor, comprueba tu correo para confirmar el registro.",
+        "SUCCESS": {
+            "CONGRATULATIONS": "¡Enhorabuena! ¡Empieza a disfrutar de la Korner App!"
+        }
+    },
+    "TABS": {
+        "PROFILE": "Perfil"
+    }
 }

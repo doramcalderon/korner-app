@@ -1,20 +1,24 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title> {{ 'PROFILE.TITLE' | translate }} </ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title> {{ "PROFILE.TITLE" | translate }} </ion-title>
+    </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
-  <div class="profile__container_user">
-    <ngx-avatar [name]="fullName" class="profile__item_avatar"></ngx-avatar>
-    <h1 class="profile__item_name">{{ fullName }}</h1>
-  </div>
+    <div class="profile__container_user">
+        <ngx-avatar [name]="fullName" class="profile__item_avatar"></ngx-avatar>
+        <h1 class="profile__item_name">{{ fullName }}</h1>
+    </div>
 
-  <ion-list class="profile__list_actions">
-    <button ion-item icon-start (click)="logout()">
-      <ion-icon name="power"></ion-icon>
-      {{ 'PROFILE.ACTIONS.LOGOUT' | translate }}
-    </button>
-  </ion-list>
+    <ion-item no-lines class="profile__item_credit">
+        <ion-label>{{ "PROFILE.CREDIT" | translate }}</ion-label>
+        <ion-label>{{ profile?.credit }} €</ion-label>
+    </ion-item>
+
+    <ion-list class="profile__list_actions">
+        <button ion-item icon-start (click)="logout()">
+            <ion-icon name="power"></ion-icon>
+            {{ "PROFILE.ACTIONS.LOGOUT" | translate }}
+        </button>
+    </ion-list>
 </ion-content>
