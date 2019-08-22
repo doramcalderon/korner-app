@@ -1,11 +1,11 @@
-import { Component, Input, OnInit } from "@angular/core";
-import { FormGroup, FormControl } from "@angular/forms";
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
-import { Bet } from "../shared";
+import { Bet } from '../shared';
 
 @Component({
     selector: 'ka-bet',
-    templateUrl: 'bet.html'
+    templateUrl: 'bet.html',
 })
 export class BetComponent implements OnInit {
     @Input() bet: Bet;
