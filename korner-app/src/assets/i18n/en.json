@@ -2,7 +2,9 @@
     "BETTING_LIST": {
         "BETS": {
             "LIKES": "likes",
-            "COMMENTS": "comments"
+            "COMMENTS": "comments",
+            "DONE": "Done",
+            "CANCEL": "Cancel"
         }
     },
     "HOME": {

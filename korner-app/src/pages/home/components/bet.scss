@@ -1,7 +1,27 @@
 ka-bet {
     .goals {
-        width: 4rem;
-        text-align: center;
+        text-align: right;
         border: none;
+        font-size: 3rem;
+    }
+    ion-input input {
+        text-align: right;
+        border: none;
+        font-size: 3rem;
+    }
+    .input__goals {
+        width: 2rem;
+    }
+
+    .button__done {
+        color: color($colors, secondary);
+    }
+
+    .button__cancel {
+        color: color($colors, danger);
+    }
+
+    .participant {
+        font-size: 2rem;
     }
 }

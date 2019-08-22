@@ -1,46 +1,88 @@
-<ion-card>
+<ion-card *ngIf="bet.editable; else noEditable">
     <ion-item>
-        <ngx-avatar
-                [name]="bet.participant.name"
-                [src]="bet.participant.avatar"
-                item-start></ngx-avatar>
-        <div>
-            <p>{{bet.participant.name}}</p>
-            <form [formGroup]="formGroup">
-                <div>
-                    <input ion-input
-                            clear
-                            class="goals"
-                            [readonly]="!bet.editable"
-                            formControlName="localGoals"
-                            placeholder="0"
-                            type="number">
-                    -
-                    <input ion-input
-                            class="goals"
-                            [readonly]="!bet.editable"
-                            formControlName="visitorGoals"
-                            placeholder="0"
-                            type="number">
-                </div>
-                <p>{{bet.note}}</p>
-            </form>
-        </div>
+        <ng-container *ngTemplateOutlet="participant" item-start></ng-container>
+        <ng-container *ngTemplateOutlet="goalsForm" item-end></ng-container>
     </ion-item>
-    <div>
-            <ion-row>
-                    <ion-col>
-                        <button ion-button icon-start clear small>
-                            <ion-icon name="thumbs-up" small></ion-icon>
-                            <div>{{ bet.likes || '0'}} {{ 'BETTING_LIST.BETS.LIKES' | translate | uppercase }} </div>
-                        </button>
-                    </ion-col>
-                    <ion-col>
-                        <button ion-button icon-start clear small>
-                            <ion-icon name="text"></ion-icon>
-                            <div>{{ bet.comments?.length || '0' }} {{ 'BETTING_LIST.BETS.COMMENTS' | translate | uppercase }}</div>
-                        </button>
-                    </ion-col>
-                </ion-row>
-            </div>
+
+    <ng-container *ngTemplateOutlet="editButtons"></ng-container>
 </ion-card>
+
+<ng-template #noEditable>
+    <ion-item>
+        <ng-container *ngTemplateOutlet="participant" item-start></ng-container>
+        <ng-container *ngTemplateOutlet="goalsReadOnly" item-end></ng-container>
+    </ion-item>
+
+    <ng-container *ngTemplateOutlet="social"></ng-container>
+</ng-template>
+
+<ng-template #participant>
+    <ngx-avatar
+        [name]="bet.participant.name"
+        [src]="bet.participant.avatar"
+        item-start
+    ></ngx-avatar>
+    <div class="participant">{{ bet.participant.name }}</div>
+</ng-template>
+
+<ng-template #goalsForm>
+    <form item-end [formGroup]="formGroup">
+        <div>
+            <input
+                autofocus
+                clear
+                class="input__goals goals"
+                formControlName="localGoals"
+                placeholder="0"
+                type="number"
+            />
+            -
+            <input
+                class="input__goals goals"
+                formControlName="visitorGoals"
+                placeholder="0"
+                type="number"
+            />
+        </div>
+    </form>
+</ng-template>
+
+<ng-template #goalsReadOnly>
+    <div class="goals">{{ bet.localGoals }} - {{ bet.visitorGoals }}</div>
+</ng-template>
+
+<ng-template #editButtons>
+    <ion-list>
+        <ion-item>
+            <button ion-button icon-start small item-start>
+                <ion-icon name="checkmark"></ion-icon>
+                {{ 'BETTING_LIST.BETS.DONE' | translate | uppercase }}
+            </button>
+            <button ion-button icon-start outline small clear item-end>
+                <ion-icon name="close"></ion-icon>
+                {{ 'BETTING_LIST.BETS.CANCEL' | translate | uppercase }}
+            </button>
+        </ion-item>
+    </ion-list>
+</ng-template>
+
+<ng-template #social>
+    <ion-list>
+        <ion-item>
+            <button ion-button icon-start clear small item-start>
+                <ion-icon name="thumbs-up" small></ion-icon>
+                <div>
+                    {{ bet.likes || '0' }}
+                    {{ 'BETTING_LIST.BETS.LIKES' | translate | uppercase }}
+                </div>
+            </button>
+            <button ion-button icon-start clear small item-end>
+                <ion-icon name="text"></ion-icon>
+                <div>
+                    {{ bet.comments?.length || '0' }}
+                    {{ 'BETTING_LIST.BETS.COMMENTS' | translate | uppercase }}
+                </div>
+            </button>
+        </ion-item>
+    </ion-list>
+</ng-template>
