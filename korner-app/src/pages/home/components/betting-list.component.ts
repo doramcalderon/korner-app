@@ -39,7 +39,7 @@ export class BettingListComponent implements OnInit {
     }
 
     private initializeBet(match: Match, userName: string) {
-        match.bets.push({
+        match.bets.unshift({
             participant: {
                 name: userName,
             },
